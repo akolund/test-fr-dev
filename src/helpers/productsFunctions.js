@@ -23,6 +23,14 @@ export const filterByKeywords = (products, keywords) => {
 	);
 };
 
+// Filter products by category
+export const filterByCategory = (products, categories) => {
+	if (!categories || categories.length === 0) return products;
+	if (categories && categories.length > 0) {
+		return products.filter((item) => categories.includes(item.category));
+	}
+};
+
 // Filter products by price range
 export const filterByPrice = (products, priceFilter) => {
 	if (!Array.isArray(priceFilter) || priceFilter.length < 2) return products;

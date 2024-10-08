@@ -37,11 +37,9 @@ const PriceFilter = ({ maxPrice, setPriceFilter }) => {
 					ariaLabel={["Lower thumb", "Upper thumb"]}
 					ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
 					renderThumb={(props, state) => {
-						const { key, ...restProps } = props; // If key exists in props, we still destructure it out
+						const { key, ...restProps } = props;
 						return (
 							<div key={state.index} {...restProps}>
-								{" "}
-								{/* Add unique key here */}
 								<div className="thumbValues">{state.valueNow}</div>
 							</div>
 						);

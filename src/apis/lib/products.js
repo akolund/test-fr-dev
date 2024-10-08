@@ -28,7 +28,7 @@ export async function getProductByCategory(categoryFilter) {
 		);
 		return response.data;
 	} catch (error) {
-		console.error("Error fetching products:", error);
+		console.error("Error fetching categories:", error);
 		throw error;
 	}
 }

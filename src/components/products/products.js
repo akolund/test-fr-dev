@@ -6,6 +6,7 @@ import Spinner from "../Spinner";
 import {
 	sortProducts,
 	filterByKeywords,
+	filterByCategory,
 	filterByPrice,
 	paginate,
 } from "../../helpers/productsFunctions";
@@ -56,12 +57,9 @@ const ProductsListing = ({
 
 		// price filtering
 		filteredData = filterByPrice(filteredData, priceFilter);
-		// Filter by category if needed
-		if (categoryFilter && categoryFilter.length > 0) {
-			filteredData = filteredData.filter((item) =>
-				categoryFilter.includes(item.category)
-			);
-		}
+		// Filter by category
+		filteredData = filterByCategory(filteredData, categoryFilter);
+
 		setCurrentPage(1);
 		setFilteredProducts(filteredData);
 	}, [data, searchKeywords, priceFilter, categoryFilter, sortBy]);

@@ -1,11 +1,10 @@
 import { useRef, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
-//import AuthContext from "../context/authProvider";
+
 import useAuth from "../hooks/useAuth";
 import { loginUser } from "../apis/lib/users";
 export default function Login() {
-	//const { setAuth } = useContext(AuthContext);
 	const { setAuth } = useAuth();
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -18,13 +17,10 @@ export default function Login() {
 	const [errMsg, setErrMsg] = useState();
 	const [success, setSuccess] = useState(false);
 
-	//set focus on first input when the component loads
 	useEffect(() => {
 		userRef.current.focus();
-	}, []); //there is nothing in dependency array so it will happen only when the component loads
-	//it will reference to user ref
+	}, []);
 
-	// this will empty error message if the user changes user state
 	useEffect(() => {
 		setErrMsg("");
 	}, [user, pwd]);
