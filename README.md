@@ -1,3 +1,49 @@
+# Dodatni zahtjevi
+Nekoliko dodatnih informacija
+
+## Nekoliko sigurnosnih mjera za zaštitu podataka
+### Cross-Site Scripting (XSS) 
+XSS (Cross-Site Scripting) se događa kada napadač ubaci zlonamjerne skripte u web aplikaciju, koje se zatim izvršavaju unutar preglednika korisnika. 
+Da bi se to izbjeglo:
+- Koristiti vitičaste zagrade {} za unos skripte unutar JSX-a. 
+- Izbjegavati direktne manipulacije DOMa > koristiti React-ova stanja i "props" za upravljanje dinamičkim sadržajem.
+- za polja koja renderiraju HTML kod, koristiti alate koji mogu očistiti korisnički unos od zlonamjernih skripti. 
+### Cross-Site Request Forgery (CSRF)
+CSRF omogućuje napadaču izvođenje radnji u ulozi ovjerenog korisnika bez njegovog znanja i prisutnosti. 
+- CSRF Tokeni > uključiti tokene u obrasce ili u sklopu API zahtjeva
+- SameSite Cookies > postaviti sesije cookies na SameSite=Strict ili SameSite=Lax kako bi se spriječili nesigurni zahtjevi između stranica
+- provjera Referrer Header > potvrditi Referer header podatke kako bi se provjerilo dolaze li zahtjevi iz istog izvora
+- pohraniti CSRF token u cookie te ga uključiti u skup zahtjeva "body" 
+### Autentifikacije:
+Koristiti standardne biblioteke za autentifikaciju (npr. Passport.js, Auth0) kako bi sigurno upravljali autentifikacijom.
+- Upravljanje sesijama: Implementirati autentifikaciju temeljem tokena (JWT) i sigurne kolačiće.
+- Ograničavanje broja pokušaja i zaključavanje računa
+- Snažne lozinke
+- Višefaktorska autentifikacija (MFA) kao dodatna sigurnost
+### Izlaganje osjetljivih podataka
+- razdvojiti API Endpoints za različite tipove podataka
+- Filtrirati podatke na serveru
+- Dohvaćati samo one podatke koje su potrebne za određenu stranicu ili komponentu
+### Third-Party Dependencies ranjivost
+Uvijek treba ažurirati biblioteke, jer se tako može zaštititi aplikacija od poznatih ranjivosti koje su ispravljene u novijim verzijama biblioteka.
+- Pratiti sigurnosne obavijesti za biblioteke.
+- kod odabira, razmotriti faktore poput performansi, kompatibilnosti, sigurnosti i dugoročne održivosti.
+
+## Primjer testova za komponente
+Test za Modal.js
+Render Modal with Children: Osigurati da će modal prikazati prosljeđene elemente.
+Close Modal on Click: testirati da se modal zatvori na klik ili vanka površine elementa.
+Modal Header: provjera da li je točan naslov.
+Cancel Button: osigurati da se modal zatvara na klik.
+
+Test za Products.js
+Render Loading State: Provjeriti animaciju
+Render Products: Osigurati da se proizvodi ispravno prikazuju nakon što su učitani.
+Handle Filtering: Potvrditi funkcionalnost filtriranja i sortiranja.
+Pagination: Ispravni prikaz paginacije prema broju proizvoda.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
