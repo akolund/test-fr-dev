@@ -1,0 +1,132 @@
+.horizontalSlider {
+	width: 100%;
+	background: aliceblue;
+	height: 10px;
+}
+.sliderThumb {
+	box-shadow: 0px 0px 0px #000000;
+	border: 1px solid #2497e3;
+	height: 18px;
+	width: 18px;
+	border-radius: 25px;
+	background: #a1d0ff;
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: -2px;
+}
+.sidebarTrack {
+	height: 1px;
+	left: 0px !important;
+	top: 4px;
+}
+.sidebarTrack-0 {
+	border: 1px solid #f0f8ff;
+	z-index: 1;
+}
+
+.sidebarTrack-1 {
+	background: #2497e3;
+	border: 2px solid #2497e3;
+}
+
+.sidebarTrack-2 {
+	border: 1px solid #f0f8ff;
+	z-index: -1;
+}
+.thumbValues {
+	/* border: 1px solid red; */
+	width: auto;
+	margin-top: 12px;
+	background: #fff;
+	position: absolute;
+	padding: 2px 6px;
+	border: 1px solid #03a9f4;
+	top: 7px;
+	right: -17px;
+	border-radius: 8px;
+}
+
+.cr-wrapper *,
+.cr-wrapper *::before,
+.cr-wrapper *::after {
+	box-sizing: content-box !important;
+}
+
+.cr-wrapper input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.cr-wrapper span {
+	font-size: 13px;
+}
+
+.cr-wrapper {
+	display: table;
+	position: relative;
+	padding-left: 34px;
+	cursor: pointer;
+	margin-bottom: 8px;
+}
+
+.cr-wrapper input[type="checkbox"] ~ .cr-input {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	background: #eaf1fb;
+	transition: background 250ms;
+	border: 1px solid #f1f5f9;
+	border-radius: 3px;
+	transform: translate(0, -50%);
+}
+
+.cr-wrapper input[type="checkbox"] ~ .cr-input::after {
+	content: "";
+	position: absolute;
+	display: none;
+	left: 4px;
+	top: 4px;
+	width: 12px;
+	height: 12px;
+	transition: background 250ms;
+	background-color: #ffffff;
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.cr-wrapper input:checked ~ .cr-input::after {
+	display: block;
+}
+
+.cr-wrapper:hover input[type="checkbox"]:not([disabled]) ~ .cr-input,
+.cr-wrapper input[type="checkbox"]:focus ~ .cr-input {
+	background: #5ba7d9;
+	border-color: #64748b;
+}
+
+.cr-wrapper input[type="checkbox"]:checked ~ .cr-input {
+	background: #5ba7d9;
+	border-color: #64748b;
+}
+
+.cr-wrapper input[type="checkbox"]:disabled ~ .cr-input {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.cr-wrapper input[type="checkbox"]:disabled ~ span {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.cr-wrapper input[type="checkbox"]:disabled ~ .cr-input::after {
+	background: #ffffff;
+}
+
+.cr-wrapper:hover input[type="checkbox"]:not([disabled]):checked ~ .cr-input,
+.cr-wrapper input[type="checkbox"]:checked:focus ~ .cr-input {
+	background: #2497e3;
+	border-color: #10527d;
+}
